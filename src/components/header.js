@@ -21,7 +21,6 @@ const useStyles = makeStyles(theme => {
       fontWeight: "bold",
     },
     donateButton: {
-      fontWeight: "bold",
       minWidth: "105px",
     },
   }
