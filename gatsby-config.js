@@ -7,6 +7,14 @@ module.exports = {
     author: `Yazeed Bzadough`,
   },
   plugins: [
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `staticJson`,
+        path: `${__dirname}/src/staticJson`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
