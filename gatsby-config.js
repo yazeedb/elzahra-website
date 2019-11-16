@@ -1,6 +1,8 @@
+const clientName = "El-Zahra Islamic Center"
+
 module.exports = {
   siteMetadata: {
-    title: `El-Zahra Islamic Center`,
+    title: clientName,
     description: `Masjid in Midland Park, New Jersey`,
     author: `Yazeed Bzadough`,
   },
@@ -18,13 +20,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: clientName,
+        short_name: `El-Zahra`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#251C77`,
+        theme_color: `#F31A76`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/elzahra-logo.jpg`, // This path is relative to the root of the site.
       },
     },
     {
