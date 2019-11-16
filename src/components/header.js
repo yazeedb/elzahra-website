@@ -13,9 +13,6 @@ import HeartIcon from "@material-ui/icons/FavoriteBorder"
 const useStyles = makeStyles(theme => {
   console.log("the theme:", theme)
   return {
-    root: {
-      flexGrow: 1,
-    },
     menuButton: {
       marginRight: theme.spacing(2),
     },
