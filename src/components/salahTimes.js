@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => {
 
   return {
     paper: {
-      marginTop: theme.spacing(2),
+      marginTop: theme.spacing(),
     },
     table: {
       backgroundColor: "white",
@@ -43,6 +43,7 @@ const useStyles = makeStyles(theme => {
     title: {
       ...getTitleStyles(theme),
       marginTop: theme.spacing(8),
+      marginBottom: theme.spacing(),
     },
     secondaryTitle: {
       textAlign: "center",
