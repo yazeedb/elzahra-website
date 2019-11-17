@@ -28,6 +28,10 @@ const useStyles = makeStyles(theme => {
     justifyContent: "space-between",
   }
 
+  const tableCell = {
+    minWidth: "84px",
+  }
+
   return {
     paper: {
       marginTop: theme.spacing(2),
@@ -44,11 +48,13 @@ const useStyles = makeStyles(theme => {
       backgroundColor: theme.palette.primary.main,
     },
     headerCell: {
+      ...tableCell,
       color: "white",
       fontWeight: "bold",
       borderBottom: 0,
     },
     bodyCell: {
+      ...tableCell,
       color: theme.palette.textSecondary,
       border: 0,
       textTransform: "capitalize",
