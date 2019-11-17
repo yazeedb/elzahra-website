@@ -11,6 +11,14 @@ import {
   Button,
 } from "@material-ui/core"
 import { format } from "date-fns"
+import SalahTimes from "../components/salahTimes"
+
+export const getTitleStyles = theme => ({
+  fontWeight: "bold",
+  textAlign: "center",
+  marginTop: theme.spacing(4),
+  marginBottom: theme.spacing(2),
+})
 
 const useStyles = makeStyles(theme => {
   return {
@@ -24,12 +32,7 @@ const useStyles = makeStyles(theme => {
       alignItems: "baseline",
       marginBottom: theme.spacing(),
     },
-    announcementsTitle: {
-      fontWeight: "bold",
-      textAlign: "center",
-      marginTop: theme.spacing(4),
-      marginBottom: theme.spacing(2),
-    },
+    announcementsTitle: getTitleStyles(theme),
     announcementsActions: {
       justifyContent: "flex-end",
       paddingTop: 0,
@@ -108,6 +111,8 @@ const IndexPage = () => {
       >
         View all announcements
       </Button>
+
+      <SalahTimes />
     </Layout>
   )
 }
