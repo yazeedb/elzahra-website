@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "gatsby-source-wordpress": "^3.1.47",
+    "gatsby-transformer-json": "^2.2.18",
     "prettier": "^1.19.1",
     "slash": "^3.0.0"
   },
