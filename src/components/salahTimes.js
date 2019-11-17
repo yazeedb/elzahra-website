@@ -11,6 +11,7 @@ import {
   TableBody,
 } from "@material-ui/core"
 import { getTitleStyles } from "../pages"
+import { format } from "date-fns"
 
 const findTodaysSalahTimes = salahTimes => {
   const todaysDate = new Date()
@@ -42,6 +43,9 @@ const useStyles = makeStyles(theme => {
     title: {
       ...getTitleStyles(theme),
       marginTop: theme.spacing(8),
+    },
+    secondaryTitle: {
+      textAlign: "center",
     },
     headerRow: {
       ...tableRow,
@@ -120,6 +124,9 @@ const SalahTimes = () => {
     <>
       <Typography variant="h4" className={classes.title}>
         Prayer Times
+      </Typography>
+      <Typography variant="h5" color="textSecondary" align="center">
+        {format(new Date(), "EEEE MMM do, yyyy")}
       </Typography>
       <Paper className={classes.paper}>
         <Table className={classes.table}>
