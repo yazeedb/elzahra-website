@@ -16,7 +16,7 @@ import { format } from "date-fns"
 const findTodaysSalahTimes = salahTimes => {
   const todaysDate = new Date()
   const todaysMonth = todaysDate.getMonth()
-  const todaysDay = todaysDate.getDay()
+  const todaysDay = todaysDate.getDate()
 
   return salahTimes.allSalahTimes2020Json.nodes
     .find((_, index) => index === todaysMonth)
