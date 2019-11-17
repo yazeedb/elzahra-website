@@ -38,16 +38,23 @@ const useStyles = makeStyles(theme => {
       paddingTop: 0,
       paddingBottom: theme.spacing(2),
     },
-    viewAllAnnouncementsButton: {
+    actionButton: {
       height: "50px",
+    },
+    supportUsTitle: {
+      ...getTitleStyles(theme),
+      marginTop: theme.spacing(8),
     },
   }
 })
 
 const IndexPage = () => {
-  const announcements = useStaticQuery(graphql`
+  const content = useStaticQuery(graphql`
     query AnnouncementsQuery {
-      allWordpressPost(limit: 2) {
+      announcements: allWordpressPost(
+        filter: { categories: { elemMatch: { name: { eq: "Announcements" } } } }
+        limit: 2
+      ) {
         edges {
           node {
             excerpt
@@ -55,15 +62,31 @@ const IndexPage = () => {
             id
             path
             title
+            categories {
+              id
+              name
+            }
+          }
+        }
+      }
+
+      supportUsContent: allWordpressPost(
+        limit: 1
+        filter: {
+          categories: { elemMatch: { name: { eq: "Support Us Message" } } }
+        }
+      ) {
+        edges {
+          node {
+            content
+            title
           }
         }
       }
     }
   `)
 
-  const {
-    allWordpressPost: { edges },
-  } = announcements
+  const { announcements, supportUsContent } = content
 
   const classes = useStyles()
 
@@ -74,7 +97,7 @@ const IndexPage = () => {
         Announcements
       </Typography>
 
-      {edges.map(({ node }) => {
+      {announcements.edges.map(({ node }) => {
         return (
           <Card className={classes.card} key={node.id}>
             <CardContent className={classes.cardContent}>
@@ -107,12 +130,32 @@ const IndexPage = () => {
         fullWidth={true}
         variant="contained"
         color="secondary"
-        className={classes.viewAllAnnouncementsButton}
+        className={classes.actionButton}
       >
         View all announcements
       </Button>
 
       <SalahTimes />
+
+      <Typography variant="h4" className={classes.supportUsTitle}>
+        {supportUsContent.edges[0].node.title}
+      </Typography>
+      <Typography
+        variant="body2"
+        dangerouslySetInnerHTML={{
+          __html: supportUsContent.edges[0].node.content,
+        }}
+        color="textSecondary"
+      />
+
+      <Button
+        fullWidth={true}
+        variant="contained"
+        color="secondary"
+        className={classes.actionButton}
+      >
+        Donate Now
+      </Button>
     </Layout>
   )
 }
