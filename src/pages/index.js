@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => {
   return {
     card: {
       borderTop: `4px solid ${theme.palette.secondary.main}`,
-      margin: `${theme.spacing(2)}px 0`,
+      margin: `${theme.spacing()}px 0`,
     },
     cardHeader: {
       display: "flex",
