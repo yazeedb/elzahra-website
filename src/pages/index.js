@@ -160,7 +160,7 @@ const IndexPage = () => {
                   />
                 </CardContent>
                 <CardActions className={classes.announcementsActions}>
-                  <Button variant="contained" color="secondary">
+                  <Button variant="text" color="secondary">
                     Read more
                   </Button>
                 </CardActions>
