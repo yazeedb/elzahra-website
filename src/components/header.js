@@ -11,7 +11,6 @@ import MenuIcon from "@material-ui/icons/Menu"
 import HeartIcon from "@material-ui/icons/FavoriteBorder"
 
 const useStyles = makeStyles(theme => {
-  console.log("the theme:", theme)
   return {
     menuButton: {
       marginRight: theme.spacing(2),
