@@ -173,16 +173,16 @@ const IndexPage = () => {
             </Grid>
           )
         })}
-
-        <Button
-          fullWidth={true}
-          variant="contained"
-          color="secondary"
-          className={classes.actionButton}
-        >
-          View all announcements
-        </Button>
       </Grid>
+
+      <Button
+        fullWidth={true}
+        variant="contained"
+        color="secondary"
+        className={classes.actionButton}
+      >
+        View all announcements
+      </Button>
 
       <SalahTimes />
 
