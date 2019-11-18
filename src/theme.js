@@ -1,8 +1,11 @@
 import { createMuiTheme } from "@material-ui/core/styles"
 
+export const primaryMain = "#251C77"
+export const primaryMainRgb = "37,28,119"
+
 export const appTheme = createMuiTheme({
   palette: {
-    primary: { main: "#251C77", mainRgb: "37,28,119" },
+    primary: { main: primaryMain, mainRgb: primaryMainRgb },
     secondary: { main: "#F31A76" },
     textPrimary: "#000",
     textSecondary: "#4F4F4F",
