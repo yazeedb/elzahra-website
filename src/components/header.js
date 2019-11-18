@@ -6,9 +6,23 @@ import {
   makeStyles,
   Toolbar,
   Button,
+  useScrollTrigger,
+  Slide,
 } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
 import HeartIcon from "@material-ui/icons/FavoriteBorder"
+
+const HideOnScroll = ({ children }) => {
+  const trigger = useScrollTrigger()
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  )
+}
+
+export const maxAppBarHeight = 56
 
 const useStyles = makeStyles(theme => {
   return {
@@ -22,6 +36,9 @@ const useStyles = makeStyles(theme => {
     donateButton: {
       minWidth: "105px",
     },
+    appBar: {
+      maxHeight: maxAppBarHeight,
+    },
   }
 })
 
@@ -30,31 +47,33 @@ const Header = ({ siteTitle }) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar className={classes.toolbar}>
-          <IconButton
-            className={classes.menuButton}
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
+      <HideOnScroll>
+        <AppBar>
+          <Toolbar className={classes.toolbar}>
+            <IconButton
+              className={classes.menuButton}
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+            >
+              <MenuIcon />
+            </IconButton>
 
-          <Typography variant="h6" className={classes.title} noWrap>
-            {siteTitle}
-          </Typography>
+            <Typography variant="h6" className={classes.title} noWrap>
+              {siteTitle}
+            </Typography>
 
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.donateButton}
-            startIcon={<HeartIcon />}
-          >
-            Donate
-          </Button>
-        </Toolbar>
-      </AppBar>
+            <Button
+              variant="contained"
+              color="secondary"
+              className={classes.donateButton}
+              startIcon={<HeartIcon />}
+            >
+              Donate
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
     </div>
   )
 }

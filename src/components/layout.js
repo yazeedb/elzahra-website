@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import CssBaseline from "@material-ui/core/CssBaseline"
 
-import Header from "./header"
+import Header, { maxAppBarHeight } from "./header"
 import { ThemeProvider } from "@material-ui/styles"
 import { appTheme } from "../theme"
 
@@ -35,6 +35,7 @@ const Layout = ({ children }) => {
             margin: `0 auto`,
             padding: `0px 1.0875rem 1.45rem`,
             paddingTop: 0,
+            marginTop: maxAppBarHeight + appTheme.spacing(4),
           }}
         >
           <main>{children}</main>

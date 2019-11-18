@@ -144,7 +144,12 @@ const IndexPage = () => {
               <Card className={classes.card} key={node.id}>
                 <CardContent className={classes.cardContent}>
                   <div className={classes.cardHeader}>
-                    <Typography variant="h6">
+                    <Typography
+                      variant="h6"
+                      style={{
+                        marginRight: "5px",
+                      }}
+                    >
                       <b>{node.title}</b>
                     </Typography>
 
