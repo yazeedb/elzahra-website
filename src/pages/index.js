@@ -188,7 +188,7 @@ const IndexPage = () => {
       <Grid container spacing={3}>
         {servicesContent.edges.map(({ node }) => {
           return (
-            <Grid item xs={6} md={4} key={node.id}>
+            <Grid item xs={12} sm={6} md={4} key={node.id}>
               <Paper className={classes.servicePaper}>
                 <Typography
                   variant="h6"
@@ -199,7 +199,7 @@ const IndexPage = () => {
             </Grid>
           )
         })}
-        <Grid item xs={6} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Button
             variant="outlined"
             color="primary"
