@@ -13,6 +13,7 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import Header, { maxAppBarHeight } from "./header"
 import { ThemeProvider } from "@material-ui/styles"
 import { appTheme } from "../theme"
+import Footer from "./footer"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -40,6 +41,8 @@ const Layout = ({ children }) => {
         >
           <main>{children}</main>
         </div>
+
+        <Footer />
       </ThemeProvider>
     </>
   )

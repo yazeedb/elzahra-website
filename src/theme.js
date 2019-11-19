@@ -18,4 +18,5 @@ export const appTheme = createMuiTheme({
       reallySmall: 370,
     },
   },
+  borderRadius: 3,
 })
