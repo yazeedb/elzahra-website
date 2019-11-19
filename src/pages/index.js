@@ -16,6 +16,8 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos"
 import { format } from "date-fns"
 import SalahTimes from "../components/salahTimes"
 import { primaryMain } from "../theme"
+import Carousel from "../components/carousel"
+import "@glidejs/glide/dist/css/glide.core.min.css"
 
 export const getTitleStyles = theme => ({
   fontWeight: "bold",
@@ -131,8 +133,9 @@ const IndexPage = () => {
   const classes = useStyles()
 
   return (
-    <Layout>
+    <Layout childrenOutsideWrapper={<Carousel />}>
       <SEO title="Home" />
+
       <Typography variant="h4" className={classes.announcementsTitle}>
         Announcements
       </Typography>
