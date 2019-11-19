@@ -12,6 +12,9 @@ export const appTheme = createMuiTheme({
     link: "#2D9CDB",
     amazonColor: "#FB9838",
     white: "#fff",
+    background: {
+      default: "white",
+    },
   },
   breakpoints: {
     customValues: {

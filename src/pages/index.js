@@ -11,13 +11,12 @@ import {
   Button,
   Paper,
   Grid,
+  CardMedia,
 } from "@material-ui/core"
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos"
 import { format } from "date-fns"
 import SalahTimes from "../components/salahTimes"
 import { primaryMain } from "../theme"
-import Carousel from "../components/carousel"
-import "@glidejs/glide/dist/css/glide.core.min.css"
 
 export const getTitleStyles = theme => ({
   fontWeight: "bold",
@@ -36,23 +35,19 @@ const getPaperStyles = theme => ({
 const useStyles = makeStyles(theme => {
   return {
     card: {
-      borderTop: `4px solid ${theme.palette.secondary.main}`,
       margin: `${theme.spacing()}px 0`,
     },
     cardHeader: {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "baseline",
-      marginBottom: theme.spacing(),
     },
     announcementsTitle: getTitleStyles(theme),
-    announcementsActions: {
-      justifyContent: "flex-end",
-      paddingTop: 0,
-      paddingBottom: theme.spacing(2),
-    },
     actionButton: {
       height: "50px",
+    },
+    cardMedia: {
+      height: "145px",
     },
     servicesTitle: {
       ...getTitleStyles(theme),
@@ -82,6 +77,7 @@ const IndexPage = () => {
       announcements: allWordpressPost(
         filter: { categories: { elemMatch: { name: { eq: "Announcements" } } } }
         limit: 3
+        sort: { fields: date, order: DESC }
       ) {
         edges {
           node {
@@ -93,6 +89,15 @@ const IndexPage = () => {
             categories {
               id
               name
+            }
+            featured_media {
+              localFile {
+                childImageSharp {
+                  fluid {
+                    src
+                  }
+                }
+              }
             }
           }
         }
@@ -133,7 +138,7 @@ const IndexPage = () => {
   const classes = useStyles()
 
   return (
-    <Layout childrenOutsideWrapper={<Carousel />}>
+    <Layout>
       <SEO title="Home" />
 
       <Typography variant="h4" className={classes.announcementsTitle}>
@@ -142,20 +147,28 @@ const IndexPage = () => {
 
       <Grid container spacing={3}>
         {announcements.edges.map(({ node }) => {
+          console.log(node)
           return (
             <Grid item xs={12} sm={6} md={4} key={node.id}>
               <Card className={classes.card} key={node.id}>
+                <CardMedia
+                  image={
+                    node.featured_media.localFile.childImageSharp.fluid.src
+                  }
+                  title={node.title}
+                  className={classes.cardMedia}
+                />
+
                 <CardContent className={classes.cardContent}>
                   <div className={classes.cardHeader}>
                     <Typography
                       variant="h6"
                       style={{
                         marginRight: "5px",
+                        fontWeight: "bold",
                       }}
-                    >
-                      <b>{node.title}</b>
-                    </Typography>
-
+                      dangerouslySetInnerHTML={{ __html: node.title }}
+                    />
                     <Typography variant="subtitle1" color="textSecondary">
                       {format(new Date(node.date), "M/d/yyyy")}
                     </Typography>
@@ -167,8 +180,12 @@ const IndexPage = () => {
                     color="textSecondary"
                   />
                 </CardContent>
-                <CardActions className={classes.announcementsActions}>
-                  <Button variant="text" color="secondary">
+                <CardActions>
+                  <Button
+                    variant="text"
+                    color="secondary"
+                    style={{ fontWeight: "bold" }}
+                  >
                     Read more
                   </Button>
                 </CardActions>
