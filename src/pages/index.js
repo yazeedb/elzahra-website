@@ -150,7 +150,7 @@ const IndexPage = () => {
           console.log(node)
           return (
             <Grid item xs={12} sm={6} md={4} key={node.id}>
-              <Card className={classes.card} key={node.id}>
+              <Card className={classes.card} key={node.id} elevation={3}>
                 <CardMedia
                   image={
                     node.featured_media.localFile.childImageSharp.fluid.src
