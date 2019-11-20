@@ -165,7 +165,7 @@ const IndexPage = () => {
                     />
                   </div>
 
-                  <Typography variant="subtitle1" color="textSecondary">
+                  <Typography variant="subtitle2" color="textSecondary">
                     {format(new Date(node.date), "M/d/yyyy")}
                   </Typography>
 
