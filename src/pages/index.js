@@ -141,7 +141,6 @@ const IndexPage = () => {
 
       <Grid container spacing={3}>
         {announcements.edges.map(({ node }) => {
-          console.log(node)
           return (
             <Grid item xs={12} sm={6} md={4} key={node.id}>
               <Card className={classes.card} key={node.id} elevation={3}>
