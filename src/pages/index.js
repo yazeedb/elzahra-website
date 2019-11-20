@@ -45,6 +45,7 @@ const useStyles = makeStyles(theme => {
     announcementsTitle: getTitleStyles(theme),
     actionButton: {
       height: "50px",
+      marginTop: theme.spacing(2),
     },
     cardMedia: {
       height: "145px",
@@ -103,18 +104,11 @@ const IndexPage = () => {
         }
       }
 
-      supportUsContent: allWordpressPost(
-        limit: 1
-        filter: {
-          categories: { elemMatch: { name: { eq: "Support Us Message" } } }
-        }
+      supportUsContent: wordpressPost(
+        categories: { elemMatch: { name: { eq: "Support Us Message" } } }
       ) {
-        edges {
-          node {
-            content
-            title
-          }
-        }
+        content
+        title
       }
 
       servicesContent: allWordpressPost(
@@ -169,10 +163,11 @@ const IndexPage = () => {
                       }}
                       dangerouslySetInnerHTML={{ __html: node.title }}
                     />
-                    <Typography variant="subtitle1" color="textSecondary">
-                      {format(new Date(node.date), "M/d/yyyy")}
-                    </Typography>
                   </div>
+
+                  <Typography variant="subtitle1" color="textSecondary">
+                    {format(new Date(node.date), "M/d/yyyy")}
+                  </Typography>
 
                   <Typography
                     variant="body2"
@@ -239,12 +234,12 @@ const IndexPage = () => {
       </Grid>
 
       <Typography variant="h4" className={classes.supportUsTitle}>
-        {supportUsContent.edges[0].node.title}
+        {supportUsContent.title}
       </Typography>
       <Typography
         variant="body2"
         dangerouslySetInnerHTML={{
-          __html: supportUsContent.edges[0].node.content,
+          __html: supportUsContent.content,
         }}
         color="textSecondary"
       />
