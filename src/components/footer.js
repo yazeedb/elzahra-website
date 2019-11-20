@@ -68,6 +68,8 @@ const Footer = () => {
         </a>
       </div>
 
+      <div>218 Irving St, Midland Park, NJ 07432</div>
+
       <div>
         <a className={classes.yazeedLink} href="https://yazeedb.com">
           Designed by Yazeed Bzadough
