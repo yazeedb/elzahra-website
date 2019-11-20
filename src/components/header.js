@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   AppBar,
   IconButton,
@@ -11,6 +11,8 @@ import {
 } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
 import HeartIcon from "@material-ui/icons/FavoriteBorder"
+import SideNav from "./SideNav"
+import { Link } from "gatsby"
 
 const HideOnScroll = ({ children }) => {
   const trigger = useScrollTrigger()
@@ -43,10 +45,18 @@ const useStyles = makeStyles(theme => {
 })
 
 const Header = ({ siteTitle }) => {
+  const [sideNavVisible, setSideNavVisible] = useState(false)
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
+      <SideNav
+        open={sideNavVisible}
+        onClose={() => {
+          setSideNavVisible(false)
+        }}
+        onOpen={console.log}
+      />
       <HideOnScroll>
         <AppBar>
           <Toolbar className={classes.toolbar}>
@@ -55,6 +65,9 @@ const Header = ({ siteTitle }) => {
               edge="start"
               color="inherit"
               aria-label="menu"
+              onClick={() => {
+                setSideNavVisible(true)
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -63,14 +76,21 @@ const Header = ({ siteTitle }) => {
               {siteTitle}
             </Typography>
 
-            <Button
-              variant="contained"
-              color="secondary"
-              className={classes.donateButton}
-              startIcon={<HeartIcon />}
+            <Link
+              to="/donate"
+              style={{
+                textDecoration: "none",
+              }}
             >
-              Donate
-            </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.donateButton}
+                startIcon={<HeartIcon />}
+              >
+                Donate
+              </Button>
+            </Link>
           </Toolbar>
         </AppBar>
       </HideOnScroll>

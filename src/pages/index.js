@@ -245,14 +245,21 @@ const IndexPage = () => {
         color="textSecondary"
       />
 
-      <Button
-        fullWidth={true}
-        variant="contained"
-        color="secondary"
-        className={classes.actionButton}
+      <Link
+        to="/donate"
+        style={{
+          textDecoration: "none",
+        }}
       >
-        Donate Now
-      </Button>
+        <Button
+          fullWidth={true}
+          variant="contained"
+          color="secondary"
+          className={classes.actionButton}
+        >
+          Donate Now
+        </Button>
+      </Link>
     </Layout>
   )
 }
