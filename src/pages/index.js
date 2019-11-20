@@ -25,6 +25,11 @@ export const getTitleStyles = theme => ({
   marginBottom: theme.spacing(2),
 })
 
+export const getActionButtonStyles = theme => ({
+  height: "50px",
+  marginTop: theme.spacing(2),
+})
+
 const getPaperStyles = theme => ({
   padding: theme.spacing(2),
   textAlign: "center",
@@ -43,10 +48,7 @@ const useStyles = makeStyles(theme => {
       alignItems: "baseline",
     },
     announcementsTitle: getTitleStyles(theme),
-    actionButton: {
-      height: "50px",
-      marginTop: theme.spacing(2),
-    },
+    actionButton: getActionButtonStyles(theme),
     cardMedia: {
       height: "145px",
     },

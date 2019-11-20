@@ -2,6 +2,8 @@ import { createMuiTheme } from "@material-ui/core/styles"
 
 export const primaryMain = "#251C77"
 export const primaryMainRgb = "37,28,119"
+export const amazonColor = "#FB9838"
+export const borderRadius = 3
 
 export const appTheme = createMuiTheme({
   palette: {
@@ -10,7 +12,8 @@ export const appTheme = createMuiTheme({
     textPrimary: "#000",
     textSecondary: "#4F4F4F",
     link: "#2D9CDB",
-    amazonColor: "#FB9838",
+    amazonColor,
+    alternateSectionBackground: `rgba(${primaryMainRgb}, 0.05)`,
     white: "#fff",
     background: {
       default: "white",
@@ -21,5 +24,5 @@ export const appTheme = createMuiTheme({
       reallySmall: 370,
     },
   },
-  borderRadius: 3,
+  borderRadius,
 })
