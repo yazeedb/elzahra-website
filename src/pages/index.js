@@ -65,11 +65,7 @@ const useStyles = makeStyles(theme => {
       color: primaryMain,
       border: `2px solid ${primaryMain}`,
     },
-    viewAllServicesButton: {
-      ...getPaperStyles(theme),
-      backgroundColor: primaryMain,
-      color: "white",
-    },
+    viewAllServicesButton: getPaperStyles(theme),
     supportUsTitle: {
       ...getTitleStyles(theme),
       marginTop: theme.spacing(8),
@@ -226,7 +222,7 @@ const IndexPage = () => {
         <Grid item xs={12} sm={6} md={4}>
           <Link to="/programs-services">
             <Button
-              variant="outlined"
+              variant="contained"
               color="primary"
               endIcon={<ArrowForwardIosIcon />}
               className={classes.viewAllServicesButton}
