@@ -62,11 +62,14 @@ const useStyles = makeStyles(theme => {
       // RACE CONDITION BAND-AID!
       // For some reason index.js isn't receiving ThemeProvider
       // So theme.palette.primary.main isn't working
+      color: primaryMain,
+      border: `2px solid ${primaryMain}`,
+    },
+    viewAllServicesButton: {
+      ...getPaperStyles(theme),
       backgroundColor: primaryMain,
-
       color: "white",
     },
-    viewAllServicesButton: getPaperStyles(theme),
     supportUsTitle: {
       ...getTitleStyles(theme),
       marginTop: theme.spacing(8),
@@ -210,7 +213,7 @@ const IndexPage = () => {
         {servicesContent.edges.map(({ node }) => {
           return (
             <Grid item xs={12} sm={6} md={4} key={node.id}>
-              <Paper className={classes.servicePaper}>
+              <Paper className={classes.servicePaper} elevation={0}>
                 <Typography
                   variant="h6"
                   dangerouslySetInnerHTML={{ __html: node.title }}
@@ -221,16 +224,18 @@ const IndexPage = () => {
           )
         })}
         <Grid item xs={12} sm={6} md={4}>
-          <Button
-            variant="outlined"
-            color="primary"
-            endIcon={<ArrowForwardIosIcon />}
-            className={classes.viewAllServicesButton}
-            size="large"
-            fullWidth={true}
-          >
-            View all
-          </Button>
+          <Link to="/programs-services">
+            <Button
+              variant="outlined"
+              color="primary"
+              endIcon={<ArrowForwardIosIcon />}
+              className={classes.viewAllServicesButton}
+              size="large"
+              fullWidth={true}
+            >
+              View all
+            </Button>
+          </Link>
         </Grid>
       </Grid>
 

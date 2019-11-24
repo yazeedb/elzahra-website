@@ -130,6 +130,8 @@ const DonatePage = () => {
               color="secondary"
               variant="contained"
               fullWidth={true}
+              href="https://www.paypal.com/donate/?token=w-Z6GHWg4vnGGHJhYWaBniXXRB0D-8zYsQXwVHdPOAvdsNK2gPOQXiq2wdKzCiA1-vXxdm&country.x=US&locale.x=US"
+              target="_blank"
             >
               Donate now
             </Button>
