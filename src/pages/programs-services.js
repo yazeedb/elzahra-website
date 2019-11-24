@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => {
     serviceTitle: {},
     serviceSection: {
       marginTop: theme.spacing(8),
-      borderTop: `4px solid ${primaryMain}`,
+      borderTop: `5px solid ${primaryMain}`,
     },
     serviceBody: {
       color: textSecondary,
