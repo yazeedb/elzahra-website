@@ -1,8 +1,10 @@
 const clientName = "El-Zahra Islamic Center"
+const shortClientName = "El-Zahra"
 
 module.exports = {
   siteMetadata: {
     title: clientName,
+    shortTitle: shortClientName,
     description: `Masjid in Midland Park, New Jersey`,
     author: `Yazeed Bzadough`,
   },

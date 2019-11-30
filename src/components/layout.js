@@ -21,6 +21,7 @@ const Layout = ({ children, childrenOutsideWrapper }) => {
       site {
         siteMetadata {
           title
+          shortTitle
         }
       }
     }
@@ -34,7 +35,10 @@ const Layout = ({ children, childrenOutsideWrapper }) => {
     >
       <ThemeProvider theme={appTheme}>
         <CssBaseline />
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header
+          siteTitle={data.site.siteMetadata.title}
+          shortSiteTitle={data.site.siteMetadata.shortTitle}
+        />
         {childrenOutsideWrapper}
         <div
           style={{

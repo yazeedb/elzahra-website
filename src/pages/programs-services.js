@@ -53,7 +53,7 @@ const ProgramsAndServices = () => {
           <Card className={classes.serviceSection} elevation={3} key={node.id}>
             <CardContent>
               <Typography
-                variant="h4"
+                variant="h5"
                 dangerouslySetInnerHTML={{ __html: node.title }}
                 className={classes.serviceTitle}
               />

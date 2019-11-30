@@ -8,6 +8,7 @@ import {
   Button,
   useScrollTrigger,
   Slide,
+  useMediaQuery,
 } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
 import HeartIcon from "@material-ui/icons/FavoriteBorder"
@@ -44,9 +45,11 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle, shortSiteTitle }) => {
+  console.log(shortSiteTitle)
   const [sideNavVisible, setSideNavVisible] = useState(false)
   const classes = useStyles()
+  const isMobileViewport = useMediaQuery("(max-width: 480px)")
 
   return (
     <div className={classes.root}>
@@ -73,7 +76,7 @@ const Header = ({ siteTitle }) => {
             </IconButton>
 
             <Typography variant="h6" className={classes.title} noWrap>
-              {siteTitle}
+              {isMobileViewport ? shortSiteTitle : siteTitle}
             </Typography>
 
             <Link
