@@ -46,7 +46,6 @@ const useStyles = makeStyles(theme => {
 })
 
 const Header = ({ siteTitle, shortSiteTitle }) => {
-  console.log(shortSiteTitle)
   const [sideNavVisible, setSideNavVisible] = useState(false)
   const classes = useStyles()
   const isMobileViewport = useMediaQuery("(max-width: 480px)")
