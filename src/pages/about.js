@@ -1,9 +1,10 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Typography, makeStyles } from "@material-ui/core"
 import { getTitleStyles } from "."
+import { getBodyCopyStyles } from "../theme"
 
 const useStyles = makeStyles(theme => {
   return {
@@ -11,6 +12,7 @@ const useStyles = makeStyles(theme => {
       ...getTitleStyles(theme),
       marginTop: theme.spacing(8),
     },
+    bodyCopy: getBodyCopyStyles(theme),
     "@global": {
       img: {
         width: "100%",
@@ -119,6 +121,7 @@ const AboutPage = () => {
 
             <Typography
               variant="body1"
+              className={classes.bodyCopy}
               dangerouslySetInnerHTML={{ __html: content }}
             />
           </div>

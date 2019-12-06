@@ -1,20 +1,15 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {
-  Card,
-  CardContent,
-  Typography,
-  makeStyles,
-  CardActions,
-  Button,
-  Paper,
-  Grid,
-  CardMedia,
-} from "@material-ui/core"
+import { Typography, makeStyles, Button } from "@material-ui/core"
 import amazonSmileLogo from "../images/amazon-smile-logo.png"
-import { amazonColor, borderRadius, alternateSectionBackground } from "../theme"
+import {
+  amazonColor,
+  borderRadius,
+  alternateSectionBackground,
+  getBodyCopyStyles,
+} from "../theme"
 import { getActionButtonStyles, getTitleStyles } from "."
 
 const useStyles = makeStyles(theme => {
@@ -25,6 +20,7 @@ const useStyles = makeStyles(theme => {
       paddingTop: theme.spacing(4),
       paddingBottom: theme.spacing(2),
     },
+    bodyCopy: getBodyCopyStyles(theme),
     causeImage: {
       width: "100%",
     },
@@ -90,7 +86,7 @@ const DonatePage = () => {
 
       <img src={amazonSmileLogo} className={classes.amazonSmileLogo} />
 
-      <Typography variant="body1">
+      <Typography variant="body1" className={classes.bodyCopy}>
         When you shop at <b>smile.amazon.com</b>, Amazon sends a donation to us.
       </Typography>
 
@@ -122,6 +118,7 @@ const DonatePage = () => {
 
             <Typography
               variant="body1"
+              className={classes.bodyCopy}
               dangerouslySetInnerHTML={{ __html: node.content }}
             />
 
@@ -142,7 +139,7 @@ const DonatePage = () => {
       <Typography variant="h4" className={classes.checkOrPledgeTitle}>
         Send a Check
       </Typography>
-      <Typography variant="body1">
+      <Typography variant="body1" className={classes.bodyCopy}>
         El-Zahra Education Foundation Inc.
         <br />
         218 Irving Street
@@ -153,7 +150,7 @@ const DonatePage = () => {
       <Typography variant="h4" className={classes.checkOrPledgeTitle}>
         Make a Pledge
       </Typography>
-      <Typography variant="body1">
+      <Typography variant="body1" className={classes.bodyCopy}>
         Please fill out and mail the <a href="#">pledge form</a>
       </Typography>
     </Layout>

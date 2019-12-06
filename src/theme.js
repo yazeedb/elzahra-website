@@ -28,4 +28,12 @@ export const appTheme = createMuiTheme({
     },
   },
   borderRadius,
+  typography: {
+    fontSize: 16,
+  },
+})
+
+export const getBodyCopyStyles = theme => ({
+  fontSize: "1.2rem",
+  color: textSecondary,
 })

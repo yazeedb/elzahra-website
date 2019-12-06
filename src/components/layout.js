@@ -15,7 +15,7 @@ import { ThemeProvider } from "@material-ui/styles"
 import { appTheme } from "../theme"
 import Footer from "./footer"
 
-const Layout = ({ children, childrenOutsideWrapper }) => {
+const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -39,7 +39,7 @@ const Layout = ({ children, childrenOutsideWrapper }) => {
           siteTitle={data.site.siteMetadata.title}
           shortSiteTitle={data.site.siteMetadata.shortTitle}
         />
-        {childrenOutsideWrapper}
+
         <div
           style={{
             margin: `0 auto`,
