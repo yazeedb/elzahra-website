@@ -33,16 +33,19 @@ export const appTheme = createMuiTheme({
   },
 })
 
+const layoutPadding = "0px 1.0875rem 1.45rem"
+
 export const getBodyCopyStyles = () => ({
   fontSize: "1.2rem",
   color: textSecondary,
+  padding: layoutPadding,
 })
 
 export const maxAppBarHeight = 56
 
 export const baseLayoutStyles = {
   margin: "0 auto",
-  padding: "0px 1.0875rem 1.45rem",
+  padding: layoutPadding,
   paddingTop: 0,
   marginTop: maxAppBarHeight + appTheme.spacing(4),
 }
