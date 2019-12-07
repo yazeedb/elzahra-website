@@ -14,6 +14,7 @@ import MenuIcon from "@material-ui/icons/Menu"
 import HeartIcon from "@material-ui/icons/FavoriteBorder"
 import SideNav from "./SideNav"
 import { Link } from "gatsby"
+import { maxAppBarHeight } from "../theme"
 
 const HideOnScroll = ({ children }) => {
   const trigger = useScrollTrigger()
@@ -24,8 +25,6 @@ const HideOnScroll = ({ children }) => {
     </Slide>
   )
 }
-
-export const maxAppBarHeight = 56
 
 const useStyles = makeStyles(theme => {
   return {
