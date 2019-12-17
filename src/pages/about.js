@@ -4,18 +4,18 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Typography, makeStyles } from "@material-ui/core"
 import { getTitleStyles } from "."
-import { getBodyCopyStyles, alternateSectionBackground } from "../theme"
+import { getBodyCopyStyles } from "../theme"
 
 const useStyles = makeStyles(theme => {
   return {
     title: {
       ...getTitleStyles(theme),
-      paddingTop: theme.spacing(4),
     },
-    bodyCopy: getBodyCopyStyles(theme),
-    evenSection: {
-      backgroundColor: alternateSectionBackground,
+    bodyCopy: {
+      ...getBodyCopyStyles(theme),
+      paddingBottom: theme.spacing(8),
     },
+    evenSection: {},
     "@global": {
       img: {
         width: "100%",
@@ -104,11 +104,7 @@ const AboutPage = () => {
   } = aboutUsContent
 
   return (
-    <Layout
-      style={{
-        padding: 0,
-      }}
-    >
+    <Layout>
       <SEO title="About Us" />
 
       {Object.keys({

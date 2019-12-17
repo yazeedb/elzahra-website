@@ -6,7 +6,7 @@ export const secondaryMain = "#F31A76"
 export const textSecondary = "#4F4F4F"
 export const amazonColor = "#FB9838"
 export const borderRadius = 3
-export const alternateSectionBackground = `rgba(${primaryMainRgb}, 0.05)`
+export const alternateSectionBackground = `rgba(${primaryMainRgb}, 0.25)`
 
 export const appTheme = createMuiTheme({
   palette: {
@@ -33,12 +33,11 @@ export const appTheme = createMuiTheme({
   },
 })
 
-const layoutPadding = "0px 1.0875rem 1.45rem"
+const layoutPadding = "0px 3.0875rem 1.45rem"
 
 export const getBodyCopyStyles = () => ({
   fontSize: "1.2rem",
   color: textSecondary,
-  padding: layoutPadding,
 })
 
 export const maxAppBarHeight = 56

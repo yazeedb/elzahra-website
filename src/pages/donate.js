@@ -40,9 +40,6 @@ const useStyles = makeStyles(theme => {
       ...causeTitles,
       paddingBottom: theme.spacing(0),
     },
-    oddCause: {
-      backgroundColor: alternateSectionBackground,
-    },
   }
 })
 
