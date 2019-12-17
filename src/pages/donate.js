@@ -13,12 +13,14 @@ import {
 import { getActionButtonStyles, getTitleStyles } from "."
 
 const useStyles = makeStyles(theme => {
+  const causeTitles = {
+    ...getTitleStyles(theme),
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(2),
+  }
+
   return {
-    causeTitles: {
-      ...getTitleStyles(theme),
-      paddingTop: theme.spacing(4),
-      paddingBottom: theme.spacing(2),
-    },
+    causeTitles,
     bodyCopy: getBodyCopyStyles(theme),
     causeImage: {
       width: "100%",
@@ -35,8 +37,8 @@ const useStyles = makeStyles(theme => {
     },
     donateButton: getActionButtonStyles(theme),
     checkOrPledgeTitle: {
-      ...getTitleStyles(theme),
-      textAlign: "initial",
+      ...causeTitles,
+      paddingBottom: theme.spacing(0),
     },
     oddCause: {
       backgroundColor: alternateSectionBackground,
@@ -134,7 +136,7 @@ const DonatePage = () => {
       <Typography variant="h4" className={classes.checkOrPledgeTitle}>
         Send a Check
       </Typography>
-      <Typography variant="body1" className={classes.bodyCopy}>
+      <Typography variant="body1" className={classes.bodyCopy} align="center">
         El-Zahra Education Foundation Inc.
         <br />
         218 Irving Street
@@ -145,7 +147,7 @@ const DonatePage = () => {
       <Typography variant="h4" className={classes.checkOrPledgeTitle}>
         Make a Pledge
       </Typography>
-      <Typography variant="body1" className={classes.bodyCopy}>
+      <Typography variant="body1" className={classes.bodyCopy} align="center">
         Please fill out and mail the <a href="#">pledge form</a>
       </Typography>
     </Layout>
