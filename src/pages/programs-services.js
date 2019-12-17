@@ -4,11 +4,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Typography, makeStyles } from "@material-ui/core"
 import { textSecondary, primaryMain } from "../theme"
-import { getTitleStyles } from "."
 
 const useStyles = makeStyles(theme => {
   return {
-    mainTitle: getTitleStyles(theme),
     serviceTitle: {
       fontWeight: "bold",
     },
@@ -46,10 +44,6 @@ const ProgramsAndServices = () => {
   return (
     <Layout>
       <SEO title="Programs and Services" />
-
-      <Typography variant="h4" className={classes.mainTitle}>
-        Programs and Services
-      </Typography>
 
       {programsAndServices.allWordpressPost.edges.map(({ node }) => {
         return (
