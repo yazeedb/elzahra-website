@@ -7,15 +7,29 @@ import { getTitleStyles } from "."
 import { getBodyCopyStyles } from "../theme"
 
 const useStyles = makeStyles(theme => {
+  const bodyCopy = {
+    ...getBodyCopyStyles(theme),
+    "& ul": {
+      padding: 0,
+      listStyleType: "none",
+
+      "& li": {
+        marginTop: 30,
+      },
+    },
+  }
+
   return {
     title: {
       ...getTitleStyles(theme),
+      paddingTop: theme.spacing(8),
     },
-    bodyCopy: {
-      ...getBodyCopyStyles(theme),
-      paddingBottom: theme.spacing(8),
+    bodyCopy: bodyCopy,
+    boardMembersBodyCopy: {
+      ...bodyCopy,
+      textAlign: "center",
     },
-    evenSection: {},
+
     "@global": {
       img: {
         width: "100%",
@@ -112,12 +126,11 @@ const AboutPage = () => {
         objectives,
         history,
         aboutTheImam,
-        boardMembers,
-      }).map((key, index) => {
+      }).map(key => {
         const { id, title, content } = aboutUsContent[key]
 
         return (
-          <div className={index % 2 !== 0 ? classes.evenSection : ""} key={id}>
+          <div key={id}>
             <Typography variant="h4" className={classes.title}>
               {title}
             </Typography>
@@ -130,6 +143,20 @@ const AboutPage = () => {
           </div>
         )
       })}
+
+      {
+        <div>
+          <Typography variant="h4" className={classes.title}>
+            {boardMembers.title}
+          </Typography>
+
+          <Typography
+            variant="body1"
+            className={classes.boardMembersBodyCopy}
+            dangerouslySetInnerHTML={{ __html: boardMembers.content }}
+          />
+        </div>
+      }
     </Layout>
   )
 }
