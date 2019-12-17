@@ -31,7 +31,8 @@ export const getActionButtonStyles = theme => ({
 })
 
 const getPaperStyles = theme => ({
-  padding: theme.spacing(2),
+  padding: theme.spacing(1),
+  margin: theme.spacing(1),
   textAlign: "center",
   maxHeight: "64px",
   minWidth: "180px",
