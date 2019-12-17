@@ -80,10 +80,6 @@ const DonatePage = () => {
     <Layout>
       <SEO title="Donate" />
 
-      <Typography variant="h4" className={classes.donateTitle}>
-        Donate
-      </Typography>
-
       <img src={amazonSmileLogo} className={classes.amazonSmileLogo} />
 
       <Typography variant="body1" className={classes.bodyCopy}>
