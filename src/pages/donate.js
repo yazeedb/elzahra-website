@@ -14,7 +14,6 @@ import { getActionButtonStyles, getTitleStyles } from "."
 
 const useStyles = makeStyles(theme => {
   return {
-    donateTitle: getTitleStyles(theme),
     causeTitles: {
       ...getTitleStyles(theme),
       paddingTop: theme.spacing(4),
