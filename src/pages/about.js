@@ -32,6 +32,10 @@ const useStyles = makeStyles(theme => {
     title: {
       ...getTitleStyles(theme),
       paddingTop: theme.spacing(8),
+
+      "&.first": {
+        paddingTop: theme.spacing(2),
+      },
     },
     bodyCopy: bodyCopy,
     boardMembersBodyCopy: {
@@ -126,12 +130,15 @@ const AboutPage = () => {
         objectives,
         history,
         aboutTheImam,
-      }).map(key => {
+      }).map((key, index) => {
         const { id, title, content } = aboutUsContent[key]
 
         return (
           <div key={id}>
-            <Typography variant="h4" className={classes.title}>
+            <Typography
+              variant="h4"
+              className={index !== 0 ? classes.title : `${classes.title} first`}
+            >
               {title}
             </Typography>
 
