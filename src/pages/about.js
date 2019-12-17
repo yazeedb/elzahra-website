@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Typography, makeStyles } from "@material-ui/core"
 import { getTitleStyles } from "."
-import { getBodyCopyStyles } from "../theme"
+import { getBodyCopyStyles, borderRadius } from "../theme"
 
 const useStyles = makeStyles(theme => {
   const bodyCopy = {
@@ -17,6 +17,15 @@ const useStyles = makeStyles(theme => {
         marginTop: 30,
       },
     },
+
+    "& img": {
+      width: "100%",
+      borderRadius,
+      margin: `${theme.spacing(2)}px 0`,
+    },
+    "& figure": {
+      margin: 0,
+    },
   }
 
   return {
@@ -28,15 +37,6 @@ const useStyles = makeStyles(theme => {
     boardMembersBodyCopy: {
       ...bodyCopy,
       textAlign: "center",
-    },
-
-    "@global": {
-      img: {
-        width: "100%",
-      },
-      figure: {
-        margin: 0,
-      },
     },
   }
 })
