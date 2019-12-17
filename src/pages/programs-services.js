@@ -2,17 +2,20 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Card, CardContent, Typography, makeStyles } from "@material-ui/core"
+import { Typography, makeStyles } from "@material-ui/core"
 import { textSecondary, primaryMain } from "../theme"
 import { getTitleStyles } from "."
 
 const useStyles = makeStyles(theme => {
   return {
     mainTitle: getTitleStyles(theme),
-    serviceTitle: {},
+    serviceTitle: {
+      fontWeight: "bold",
+    },
     serviceSection: {
-      marginTop: theme.spacing(8),
       borderTop: `5px solid ${primaryMain}`,
+      paddingTop: theme.spacing(2),
+      marginTop: theme.spacing(16),
     },
     serviceBody: {
       color: textSecondary,
@@ -48,22 +51,20 @@ const ProgramsAndServices = () => {
         Programs and Services
       </Typography>
 
-      {programsAndServices.allWordpressPost.edges.map(({ node }, index) => {
+      {programsAndServices.allWordpressPost.edges.map(({ node }) => {
         return (
-          <Card className={classes.serviceSection} elevation={3} key={node.id}>
-            <CardContent>
-              <Typography
-                variant="h5"
-                dangerouslySetInnerHTML={{ __html: node.title }}
-                className={classes.serviceTitle}
-              />
-              <Typography
-                variant="body1"
-                dangerouslySetInnerHTML={{ __html: node.content }}
-                className={classes.serviceBody}
-              />
-            </CardContent>
-          </Card>
+          <div className={classes.serviceSection} elevation={3} key={node.id}>
+            <Typography
+              variant="h5"
+              dangerouslySetInnerHTML={{ __html: node.title }}
+              className={classes.serviceTitle}
+            />
+            <Typography
+              variant="body1"
+              dangerouslySetInnerHTML={{ __html: node.content }}
+              className={classes.serviceBody}
+            />
+          </div>
         )
       })}
     </Layout>
