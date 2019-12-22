@@ -3,44 +3,37 @@ import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Typography, makeStyles } from "@material-ui/core"
-import { getTitleStyles } from "."
-import { getBodyCopyStyles, borderRadius } from "../theme"
+import { borderRadius, primaryMain, textSecondary } from "../theme"
 
 const useStyles = makeStyles(theme => {
-  const bodyCopy = {
-    ...getBodyCopyStyles(theme),
-    "& ul": {
-      padding: 0,
-      listStyleType: "none",
-
-      "& li": {
-        marginTop: 30,
-      },
-    },
-
-    "& img": {
-      width: "100%",
-      borderRadius,
-      margin: `${theme.spacing(2)}px 0`,
-    },
-    "& figure": {
-      margin: 0,
-    },
-  }
-
   return {
     title: {
-      ...getTitleStyles(theme),
-      paddingTop: theme.spacing(8),
-
-      "&.first": {
-        paddingTop: theme.spacing(2),
-      },
+      fontWeight: "bold",
     },
-    bodyCopy: bodyCopy,
-    boardMembersBodyCopy: {
-      ...bodyCopy,
-      textAlign: "center",
+    serviceSection: {
+      borderTop: `5px solid ${primaryMain}`,
+      paddingTop: theme.spacing(2),
+      marginTop: theme.spacing(12),
+    },
+    bodyCopy: {
+      color: textSecondary,
+      "& ul": {
+        padding: 0,
+        listStyleType: "none",
+
+        "& li": {
+          marginTop: 30,
+        },
+      },
+
+      "& img": {
+        width: "100%",
+        borderRadius,
+        margin: `${theme.spacing(2)}px 0`,
+      },
+      "& figure": {
+        margin: 0,
+      },
     },
   }
 })
@@ -130,13 +123,14 @@ const AboutPage = () => {
         objectives,
         history,
         aboutTheImam,
+        boardMembers,
       }).map((key, index) => {
         const { id, title, content } = aboutUsContent[key]
 
         return (
-          <div key={id}>
+          <div className={classes.serviceSection} key={id}>
             <Typography
-              variant="h4"
+              variant="h5"
               className={index !== 0 ? classes.title : `${classes.title} first`}
             >
               {title}
@@ -150,20 +144,6 @@ const AboutPage = () => {
           </div>
         )
       })}
-
-      {
-        <div>
-          <Typography variant="h4" className={classes.title}>
-            {boardMembers.title}
-          </Typography>
-
-          <Typography
-            variant="body1"
-            className={classes.boardMembersBodyCopy}
-            dangerouslySetInnerHTML={{ __html: boardMembers.content }}
-          />
-        </div>
-      }
     </Layout>
   )
 }

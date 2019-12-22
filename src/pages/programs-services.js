@@ -47,7 +47,7 @@ const ProgramsAndServices = () => {
 
       {programsAndServices.allWordpressPost.edges.map(({ node }) => {
         return (
-          <div className={classes.serviceSection} elevation={3} key={node.id}>
+          <div className={classes.serviceSection} key={node.id}>
             <Typography
               variant="h5"
               dangerouslySetInnerHTML={{ __html: node.title }}
