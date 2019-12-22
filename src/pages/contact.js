@@ -83,15 +83,22 @@ const ContactUs = () => {
         </Grid>
 
         <Grid container>
-          <Typography variant="body1" className={classes.subsection}>
-            Office - <a href="mailto:office@elzahra.org">office@elzahra.org</a>
-          </Typography>
-          <Typography variant="body1" className={classes.subsection}>
-            Imam - <a href="mailto:imam@elzahra.org">imam@elzahra.org</a>
-          </Typography>
-          <Typography variant="body1" className={classes.subsection}>
-            Info - <a href="mailto:info@elzahra.org">info@elzahra.org</a>
-          </Typography>
+          <Grid container>
+            <Typography variant="body1" className={classes.subsection}>
+              Office -{" "}
+              <a href="mailto:office@elzahra.org">office@elzahra.org</a>
+            </Typography>
+          </Grid>
+          <Grid container>
+            <Typography variant="body1" className={classes.subsection}>
+              Imam - <a href="mailto:imam@elzahra.org">imam@elzahra.org</a>
+            </Typography>
+          </Grid>
+          <Grid container>
+            <Typography variant="body1" className={classes.subsection}>
+              Info - <a href="mailto:info@elzahra.org">info@elzahra.org</a>
+            </Typography>
+          </Grid>
         </Grid>
       </Grid>
 
@@ -107,12 +114,17 @@ const ContactUs = () => {
         </Grid>
 
         <Grid container>
-          <Typography variant="body1" className={classes.subsection}>
-            Main - <a href="tel:201-670-9090">201-670-9090</a>
-          </Typography>
-          <Typography variant="body1" className={classes.subsection}>
-            Hall facility usage - <a href="tel:357-987-6147">357-987-6147</a>
-          </Typography>
+          <Grid container>
+            <Typography variant="body1" className={classes.subsection}>
+              Main - <a href="tel:201-670-9090">201-670-9090</a>
+            </Typography>
+          </Grid>
+
+          <Grid container>
+            <Typography variant="body1" className={classes.subsection}>
+              Hall facility usage - <a href="tel:357-987-6147">357-987-6147</a>
+            </Typography>
+          </Grid>
         </Grid>
       </Grid>
 
