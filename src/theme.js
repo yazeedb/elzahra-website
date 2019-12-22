@@ -33,7 +33,7 @@ export const appTheme = createMuiTheme({
   },
 })
 
-const layoutPadding = "0px 3.0875rem 1.45rem"
+const layoutPadding = "0px 1.5rem 1.45rem"
 
 export const getBodyCopyStyles = () => ({
   fontSize: "1.2rem",
