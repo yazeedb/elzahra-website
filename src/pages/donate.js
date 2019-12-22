@@ -15,7 +15,7 @@ import { getActionButtonStyles, getTitleStyles } from "."
 const useStyles = makeStyles(theme => {
   const causeTitles = {
     ...getTitleStyles(theme),
-    paddingTop: theme.spacing(8),
+    paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(2),
   }
 
