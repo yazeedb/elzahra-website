@@ -12,6 +12,7 @@ import HomeIcon from "@material-ui/icons/Home"
 import GroupIcon from "@material-ui/icons/Group"
 import AppsIcon from "@material-ui/icons/Apps"
 import FavoriteIcon from "@material-ui/icons/Favorite"
+import ContactSupportIcon from "@material-ui/icons/ContactSupport"
 import { Link } from "gatsby"
 
 const useStyles = makeStyles(theme => {
@@ -52,6 +53,11 @@ const SideNav = props => {
             icon: <AppsIcon />,
           },
           { text: "Donate", href: "/donate", icon: <FavoriteIcon /> },
+          {
+            text: "Contact Us",
+            href: "/contact",
+            icon: <ContactSupportIcon />,
+          },
         ].map(item => {
           return (
             <Link
