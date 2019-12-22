@@ -79,7 +79,7 @@ const IndexPage = () => {
     query ContentQuery {
       announcements: allWordpressPost(
         filter: { categories: { elemMatch: { name: { eq: "Announcements" } } } }
-        limit: 3
+        limit: 4
         sort: { fields: date, order: DESC }
       ) {
         edges {
