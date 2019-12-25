@@ -79,28 +79,7 @@ const AnnouncementsPage = () => {
         filter: { categories: { elemMatch: { name: { eq: "Announcements" } } } }
         sort: { fields: date, order: DESC }
       ) {
-        edges {
-          node {
-            excerpt
-            date
-            id
-            path
-            title
-            categories {
-              id
-              name
-            }
-            featured_media {
-              localFile {
-                childImageSharp {
-                  fluid {
-                    src
-                  }
-                }
-              }
-            }
-          }
-        }
+        ...AllAnnouncementsFragment
       }
     }
   `)

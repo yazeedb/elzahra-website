@@ -61,28 +61,7 @@ const IndexPage = () => {
         limit: 4
         sort: { fields: date, order: DESC }
       ) {
-        edges {
-          node {
-            excerpt
-            date
-            id
-            path
-            title
-            categories {
-              id
-              name
-            }
-            featured_media {
-              localFile {
-                childImageSharp {
-                  fluid {
-                    src
-                  }
-                }
-              }
-            }
-          }
-        }
+        ...AllAnnouncementsFragment
       }
 
       supportUsContent: wordpressPost(
