@@ -2,17 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {
-  Card,
-  CardContent,
-  Typography,
-  makeStyles,
-  CardActions,
-  Button,
-  Grid,
-  CardMedia,
-} from "@material-ui/core"
-import { format } from "date-fns"
+import { Typography, makeStyles, Grid } from "@material-ui/core"
 import { primaryMain } from "../theme"
 import Post from "../components/post"
 
