@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import {
@@ -9,14 +9,12 @@ import {
   makeStyles,
   CardActions,
   Button,
-  Paper,
   Grid,
   CardMedia,
 } from "@material-ui/core"
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos"
 import { format } from "date-fns"
-import SalahTimes from "../components/salahTimes"
 import { primaryMain } from "../theme"
+import Post from "../components/post"
 
 export const getTitleStyles = theme => ({
   fontWeight: "bold",
@@ -120,55 +118,7 @@ const AnnouncementsPage = () => {
       </Typography>
 
       <Grid container spacing={3}>
-        {announcements.edges.map(({ node }) => {
-          return (
-            <Grid item xs={12} sm={6} md={4} key={node.id}>
-              <Card className={classes.card} key={node.id} elevation={3}>
-                <CardMedia
-                  image={
-                    node.featured_media
-                      ? node.featured_media.localFile.childImageSharp.fluid.src
-                      : ""
-                  }
-                  title={node.title}
-                  className={classes.cardMedia}
-                />
-
-                <CardContent className={classes.cardContent}>
-                  <div className={classes.cardHeader}>
-                    <Typography
-                      variant="h6"
-                      style={{
-                        marginRight: "5px",
-                        fontWeight: "bold",
-                      }}
-                      dangerouslySetInnerHTML={{ __html: node.title }}
-                    />
-                  </div>
-
-                  <Typography variant="subtitle2" color="textSecondary">
-                    {format(new Date(node.date), "M/d/yyyy")}
-                  </Typography>
-
-                  <Typography
-                    variant="body2"
-                    dangerouslySetInnerHTML={{ __html: node.excerpt }}
-                    color="textSecondary"
-                  />
-                </CardContent>
-                <CardActions>
-                  <Button
-                    variant="text"
-                    color="secondary"
-                    style={{ fontWeight: "bold" }}
-                  >
-                    Read more
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          )
-        })}
+        <Post announcements={announcements.edges} />
       </Grid>
     </Layout>
   )
