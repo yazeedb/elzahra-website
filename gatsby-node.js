@@ -4,19 +4,17 @@ const slash = require(`slash`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  // query content for WordPress posts
   const result = await graphql(`
     query {
-      allWordpressPost {
-        edges {
-          node {
-            id
-            slug
-          }
-        }
+      allWordpressPost(
+        filter: { categories: { elemMatch: { name: { eq: "Announcements" } } } }
+      ) {
+        ...AllAnnouncementsFragment
       }
     }
   `)
+
+  console.warn({ result })
 
   const postTemplate = path.resolve(`./src/templates/post.js`)
   result.data.allWordpressPost.edges.forEach(edge => {
