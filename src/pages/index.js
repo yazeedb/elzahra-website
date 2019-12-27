@@ -61,28 +61,7 @@ const IndexPage = () => {
         limit: 4
         sort: { fields: date, order: DESC }
       ) {
-        edges {
-          node {
-            excerpt
-            date
-            id
-            path
-            title
-            categories {
-              id
-              name
-            }
-            featured_media {
-              localFile {
-                childImageSharp {
-                  fluid {
-                    src
-                  }
-                }
-              }
-            }
-          }
-        }
+        ...AllAnnouncementsFragment
       }
 
       supportUsContent: wordpressPost(
@@ -124,14 +103,21 @@ const IndexPage = () => {
         <Post announcements={announcements.edges} />
       </Grid>
 
-      <Button
-        fullWidth={true}
-        variant="contained"
-        color="secondary"
-        className={classes.actionButton}
+      <Link
+        to="announcements"
+        style={{
+          textDecoration: "none",
+        }}
       >
-        View all announcements
-      </Button>
+        <Button
+          fullWidth={true}
+          variant="contained"
+          color="secondary"
+          className={classes.actionButton}
+        >
+          View all announcements
+        </Button>
+      </Link>
 
       <SalahTimes />
 
