@@ -9,6 +9,7 @@ export const allAnnouncementsFragment = graphql`
         id
         path
         title
+        slug
         categories {
           id
           name

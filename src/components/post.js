@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core"
 import { format } from "date-fns"
 import elzahraLogo from "../images/elzahra-logo.jpg"
+import { Link } from "gatsby"
 
 const useStyles = makeStyles(theme => {
   return {
@@ -32,6 +33,7 @@ const Post = ({ announcements }) => {
   const classes = useStyles()
 
   return announcements.map(({ node }) => {
+    console.log(node)
     return (
       <Grid item xs={12} sm={6} md={4} key={node.id}>
         <Card className={classes.card} key={node.id} elevation={3}>
@@ -68,13 +70,20 @@ const Post = ({ announcements }) => {
             />
           </CardContent>
           <CardActions>
-            <Button
-              variant="text"
-              color="secondary"
-              style={{ fontWeight: "bold" }}
+            <Link
+              to={`posts/${node.slug}`}
+              style={{
+                textDecoration: "none",
+              }}
             >
-              Read more
-            </Button>
+              <Button
+                variant="text"
+                color="secondary"
+                style={{ fontWeight: "bold" }}
+              >
+                Read more
+              </Button>
+            </Link>
           </CardActions>
         </Card>
       </Grid>

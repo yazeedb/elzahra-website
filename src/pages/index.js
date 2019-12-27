@@ -103,14 +103,21 @@ const IndexPage = () => {
         <Post announcements={announcements.edges} />
       </Grid>
 
-      <Button
-        fullWidth={true}
-        variant="contained"
-        color="secondary"
-        className={classes.actionButton}
+      <Link
+        to="announcements"
+        style={{
+          textDecoration: "none",
+        }}
       >
-        View all announcements
-      </Button>
+        <Button
+          fullWidth={true}
+          variant="contained"
+          color="secondary"
+          className={classes.actionButton}
+        >
+          View all announcements
+        </Button>
+      </Link>
 
       <SalahTimes />
 
